@@ -34,6 +34,11 @@ public class AuthenticationService {
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setEmail(userDto.getEmail());
         user.setRole(UserRole.USER);
+        user.setAbout("");
+        user.setFirstName("");
+        user.setLastName("");
+        user.setDisplayName("");
+        user.setProfile_img("https://styles.redditmedia.com/t5_2r1ox/styles/communityIcon_pgozoalsji9b1.png");
         userRepository.save(user);
         var token = jwtService.generateToken(user);
         return UserResponse.builder().token(token).build();

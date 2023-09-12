@@ -30,13 +30,10 @@ public class UserUpdateDto {
     @Email(message = "Invalid email format")
     private String email;
 
-    @NotBlank(message = "This field can not be empty or null")
     private String displayName;
 
-    @NotBlank(message = "This field can not be empty or null")
     private String firstName;
 
-    @NotBlank(message = "This field can not be empty or null")
     private String lastName;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

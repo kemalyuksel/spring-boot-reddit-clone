@@ -44,12 +44,13 @@ public class UserService {
         existingUser.setUsername(userUpdateDto.getUsername());
         existingUser.setPassword(userUpdateDto.getPassword());
         existingUser.setEmail(userUpdateDto.getEmail());
-        existingUser.setDisplayName(userUpdateDto.getDisplayName().trim());
-        existingUser.setFirstName(userUpdateDto.getFirstName().trim());
-        existingUser.setLastName(userUpdateDto.getLastName().trim());
+        existingUser.setDisplayName(userUpdateDto.getDisplayName() != null ? userUpdateDto.getDisplayName().trim() : "");
+        existingUser.setFirstName(userUpdateDto.getFirstName() != null ? userUpdateDto.getFirstName().trim() : "");
+        existingUser.setLastName(userUpdateDto.getLastName() != null ? userUpdateDto.getLastName().trim() : "");
         existingUser.setDateOfBirth(userUpdateDto.getDateOfBirth());
-        existingUser.setAbout(userUpdateDto.getAbout().trim());
+        existingUser.setAbout(userUpdateDto.getAbout() != null ? userUpdateDto.getAbout().trim() : "");
         existingUser.setProfile_img(userUpdateDto.getProfile_img());
+
 
         return UserMapper.MAPPER.userToUserUpdateDto(userRepository.save(existingUser));
     }
